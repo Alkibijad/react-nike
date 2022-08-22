@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: rgb(237, 207, 207);
+  width: 100vw;
+  height: 100vh;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.navbar {
+  background-color: white;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-size: 2rem;
+}
+.navbar-items {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}/*# sourceMappingURL=index.css.map */
