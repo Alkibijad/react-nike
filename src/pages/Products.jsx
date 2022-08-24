@@ -1,20 +1,20 @@
 import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Context from "../context/Provider";
-// import Context from "../context/Provider";
-// import { useParams } from "react-router-dom";
 
 function Products() {
-  const {getProductsByCategory, selectedProducts } = useContext(Context);
+
+  const {getProductsByCategory, productsByCategory } = useContext(Context);
   let { category } = useParams();
+
 
   useEffect(() => { 
    getProductsByCategory(category)
   }, [category])
   
   useEffect(() => {
-    console.log(selectedProducts);
-   }, [selectedProducts])
+    console.log(productsByCategory);
+   }, [productsByCategory])
 
   return <div></div>;
 }

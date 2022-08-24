@@ -6,39 +6,29 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "set_initialState":
       state = action.payload;
-      return state ;
+      return state;
     default:
       return state;
   }
 };
 
-
 export const Provider = ({ children }) => {
   const [state, dispath] = useReducer(reducer, {});
   const [categories, setCategories] = useState([]);
-  const [selectedProducts, setSelectedProducts] = useState()
-
-
-  function getProductsByCategory(category) { 
-
-
-    state.products && setSelectedProducts(state.products.filter((el) => el.source === category))
-
-  }
-
+  const [productsByCategory, setProductsByCategory] = useState();
+  const [signUp, setSignUp]= useState(false)
 
   useEffect(() => {
     API.getProducts().then((response) => {
       dispath({ type: "set_initialState", payload: response });
     });
   }, []);
+
   useEffect(() => {
-    getCateries();
+    getCategories();
   }, [state]);
- 
 
-
-  function getCateries() {
+  function getCategories() {
     let source = new Set();
     state.products &&
       state.products.forEach((product) => {
@@ -47,9 +37,25 @@ export const Provider = ({ children }) => {
     setCategories([...source]);
   }
 
+  function getProductsByCategory(category) {
+    state.products &&
+      setProductsByCategory(
+        state.products.filter((el) => el.source === category)
+      );
+  }
+
   return (
     <div>
-      <Context.Provider value={{  state, categories, getProductsByCategory, selectedProducts }}>
+      <Context.Provider
+        value={{
+          state,
+          categories,
+          getProductsByCategory,
+          productsByCategory,
+          signUp, 
+          setSignUp
+        }}
+      >
         {children}
       </Context.Provider>
     </div>
