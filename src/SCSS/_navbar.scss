@@ -1,12 +1,13 @@
 .navbar {
     position: fixed;
-    width: 100%;
-    background-color: white;
+    left: 5%;
+    height: 5rem;
+    width:90%;
+ 
     display: flex;
     justify-content: space-between;
     align-items: center;
-   
-    margin: 0 auto;
+  
     font-size: 2rem;
     &-items{
         width: 50%;

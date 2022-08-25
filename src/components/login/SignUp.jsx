@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Logo from "../navbar/Logo";
-import Context from "../../context/Provider";
+import Context from "../../store/Provider";
 
 function SignUp() {
   const { signUp, setSignUp } = useContext(Context);

@@ -10,7 +10,7 @@ function HomePage() {
           <img src={SectionOneImage} alt="" />
           <h1>in peg we trust</h1>
           <p>introducing the new nike air pegasus 39</p>
-          <button className='btn-black'><a href="https://www.nike.com/w/pegasus-8nexh"  target="_blank" rel="noopener noreferrer">Shop</a></button>
+          <button className='btn-black'><a className='btn-black' href="https://www.nike.com/w/pegasus-8nexh" target="_blank" rel="noopener noreferrer">Shop</a></button>
         </div>
       </section>
       <section className="section-2">

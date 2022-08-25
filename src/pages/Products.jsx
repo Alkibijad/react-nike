@@ -1,22 +1,24 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import Context from "../context/Provider";
+import Context from "../store/Provider";
 
 function Products() {
 
-  const {getProductsByCategory, productsByCategory } = useContext(Context);
+  const {state } = useContext(Context);
   let { category } = useParams();
 
+  function filterProduct() { 
+    return state.product.map((el, index) => { 
+      if (el.source === category) { 
+        return <p key={index}>{ el.title}</p>
+      }
+    })
+  }
 
-  useEffect(() => { 
-   getProductsByCategory(category)
-  }, [category])
-  
-  useEffect(() => {
-    console.log(productsByCategory);
-   }, [productsByCategory])
 
-  return <div></div>;
+  return <div className="products-view">
+    { filterProduct()}
+  </div>;
 }
 
 export default Products;

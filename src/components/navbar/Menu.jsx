@@ -1,22 +1,21 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import Context from "../../context/Provider";
+import Context from "../../store/Provider";
 
 function Navbar() {
-  const { categories, setSignUp} = useContext(Context);
- 
+  const { state } = useContext(Context);
 
   return (
     <>
       <ul className="navbar-items">
-        {categories.map((item, index) => {
+        {state.category.map((item, index) => {
           return (
             <li key={index}>
-              <Link to={  "/product/" + item }>{item}</Link>
+              <Link to={"/product/" + item}>{item}</Link>
             </li>
           );
         })}
-        <li onClick={() => { setSignUp(true) }}>Sign up</li>
+         {/* <li onClick={() => { setSignUp(true) }}>Sign up</li> */}
       </ul>
     </>
   );
