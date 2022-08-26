@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap");
-* {
+*, ::before, ::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,6 +8,7 @@
 html {
   font-size: 62.5%;
   font-family: "Oswald", sans-serif;
+  overflow-x: hidden;
 }
 
 body {
@@ -15,6 +16,7 @@ body {
   height: 100%;
   font-size: 1.6rem;
   color: rgb(78, 78, 78);
+  background-color: rgb(231, 231, 231);
 }
 
 a {
@@ -44,13 +46,8 @@ button {
   color: Black;
 }
 
-.products-view {
-  padding-top: 5rem;
-}
-
 .navbar {
-  position: fixed;
-  left: 5%;
+  margin: 0 auto;
   height: 5rem;
   width: 90%;
   display: flex;
@@ -62,6 +59,15 @@ button {
   width: 50%;
   display: flex;
   justify-content: space-around;
+  letter-spacing: 3px;
+  font-size: 3rem;
+}
+.navbar-items li:hover {
+  transform: scale(1.3) translateY(5px);
+  transition: 0.9s;
+}
+.navbar i {
+  width: 300px;
 }
 
 .register .signUp-view {
@@ -180,4 +186,75 @@ button {
   width: 50%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.products-view {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  padding: 5% 5% 0 5%;
+  gap: 3rem;
+}
+.products-view .product-card {
+  border-radius: 10px;
+  box-shadow: 2px 8px 8px gray;
+}
+.products-view .product-card h4, .products-view .product-card p {
+  font-weight: 300;
+}
+.products-view .product-card > *:not(img) {
+  margin-left: 5px;
+}
+.products-view .product-card-image img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.products-view .product-card-details {
+  text-align: center;
+}
+
+.cartPage {
+  background-color: white;
+  box-shadow: 0px 10px 10px grey;
+  width: 500px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-name: slidein;
+          animation-name: slidein;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    right: -500px;
+  }
+  to {
+    right: 0px;
+  }
+}
+
+@keyframes slidein {
+  from {
+    right: -500px;
+  }
+  to {
+    right: 0px;
+  }
+}
+.productInCart {
+  display: flex;
+  align-items: center;
+}
+.productInCart img {
+  width: 200px;
+  max-width: 100%;
+}
+
+.items-count {
+  display: flex;
+  align-items: center;
 }/*# sourceMappingURL=index.css.map */

@@ -1,53 +1,89 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import Logo from "../navbar/Logo";
 import Context from "../../store/Provider";
 
 function SignUp() {
-  const { signUp, setSignUp } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
 
-  useEffect(() => {
-    if (signUp) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
+  let initialInputValues = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  };
+
+  const [inputValues, setInputValues] = useState(initialInputValues)
+
+  function setFormData(e) {
+    let copyInitialInputValues = {...inputValues}
+    copyInitialInputValues[e.target.name] = e.target.value
+    setInputValues(copyInitialInputValues)
+    
+  }
+
+
+  
+  function handleSubmit(e) { 
+    e.preventDefault()
+    if (e.target.value) { 
+      console.log(e.target.value)
     }
-  }, [signUp]);
+    
+  }
 
-  return (
-    <div className="signUp">
-      {signUp && (
+  function signUpForm() {
+    return (
+      <div className="signUp">
         <div className="signUp-view">
           <div className="form-container">
             <Logo />
             <h3>
-              your account for
-              <br /> everything nike
+              your account for <br /> everything nike
             </h3>
-            <form>
-              <input type="text" placeholder="First Name" />
-              <input type="text" placeholder="Last Name" />
-              <input type="email" placeholder="Email" />
-              <input type="password" placeholder="Password" />
-              <p>
-                By logging in, you agree to Nike's Privacy Policy and Terms of
-                Use.{" "}
-              </p>
+            <form onSubmit={handleSubmit}>
+              <input
+                onInput={(e) => {setFormData(e)}}
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                value={inputValues.firstName}
+              />
+              <input
+                onInput={(e) => {setFormData(e) }}
+                type="text"
+                name="lastName"
+                placeholder="Last Name" />
+              <input
+                onInput={(e) => {setFormData(e) }}
+                type="email"
+                name="email"
+                placeholder="Email" />
+              <input
+                onInput={(e) => {setFormData(e) }}
+                type="password"
+                name="password"
+                placeholder="Password" />
+              <p>By logging in, you agree to Nike's Privacy Policy and Terms ofUse.</p>
               <button className="btn-black">Sign Up</button>
-              <button
-                className="btn-black"
-                type="button"
-                onClick={() => {
-                  setSignUp(false);
-                }}
-              >
-                Cancel
-              </button>
+              <button onClick={() => { dispatch({ type: "display_form", payload: false })}}>Cancel</button>
             </form>
           </div>
         </div>
-      )}
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <button
+        onClick={() => {
+          dispatch({ type: "display_form", payload: true });
+        }}
+      >
+        Sign Up
+      </button>
+      {state.toggleSignUpForm && signUpForm()}
     </div>
   );
 }
-
 export default SignUp;

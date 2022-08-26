@@ -1,26 +1,16 @@
-import React, { useState } from 'react'
-import Login from './Login'
-import SignUp from './SignUp'
+import React, { useContext, useState } from "react";
+import Login from "./Login";
+import SignUp from "./SignUp";
+import Context from "../../store/Provider";
 
 function Registar() {
-
-  const [registred, setRegistred] = useState(false)
-
-
-
-
+  const { state } = useContext(Context);
 
   return (
-    <div className='register'>
-
-      
-      { registred ?  <Login/> : <SignUp/> }
-
-
-
-      
+    <div className="register">
+      {state.login.signUp ? <Login /> : <SignUp />}
     </div>
-  )
+  );
 }
 
-export default Registar
+export default Registar;

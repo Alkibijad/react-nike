@@ -1,0 +1,33 @@
+.products-view {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    padding: 5% 5% 0 5%;
+    gap: 3rem;
+    .product-card {
+        border-radius: 10px;
+        box-shadow: 2px 8px 8px gray;
+        h4,p{
+            font-weight: 300;
+        }
+        &>*:not(img){
+            margin-left: 5px;
+        }
+        &-image{
+            img{
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+        &-details{
+            text-align: center;
+
+        }
+       
+
+
+
+
+}
+}

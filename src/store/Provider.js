@@ -5,6 +5,14 @@ const Context = createContext();
 const initialState = {
   product: [],
   category: [],
+  inCart: [],
+  boutght: [],
+  toggleCart: false,
+  toggleSignUpForm: false,
+  login: {
+    loggedIn: false,
+    signUp: false,
+  },
 };
 
 export const Provider = ({ children }) => {

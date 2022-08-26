@@ -1,17 +1,24 @@
 .navbar {
-    position: fixed;
-    left: 5%;
+    margin: 0 auto;
     height: 5rem;
     width:90%;
- 
     display: flex;
     justify-content: space-between;
     align-items: center;
-  
     font-size: 2rem;
     &-items{
         width: 50%;
         display: flex;
         justify-content: space-around;
+        letter-spacing: 3px;
+        font-size: 3rem;
+        li:hover{
+            transform: scale(1.3) translateY(5px);
+            transition: .9s;
+
+        }
+    }
+    i{
+        width: 300px;
     }
 }

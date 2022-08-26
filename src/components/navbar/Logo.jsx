@@ -7,8 +7,8 @@ function Logo() {
       <div className='logo'><Link to="/">
           <svg
         className="pre-logo-svg"
-        height="30px"
-        width="80px"
+        height="40px"
+        width="90px"
         fill="#111"
         viewBox="0 0 69 32"
       >

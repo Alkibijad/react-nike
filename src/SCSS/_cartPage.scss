@@ -1,0 +1,35 @@
+.cartPage {
+    background-color: white;
+    box-shadow: 0px 10px 10px grey;
+    width: 500px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    animation-duration: .3s;
+    animation-name: slidein;
+}
+
+
+@keyframes slidein {
+    from {
+        right: -500px;
+    }
+    to {
+        right: 0px;
+    }
+}
+
+.productInCart{
+    display: flex;
+    align-items: center;
+
+    img{
+        width: 200px;
+        max-width: 100%;
+    }
+}
+
+.items-count{
+    display: flex;
+    align-items: center;
+}
